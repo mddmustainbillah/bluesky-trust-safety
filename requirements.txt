@@ -1,0 +1,8 @@
+# Runtime dependencies added phase by phase
+pydantic>=2,<3
+pydantic-settings>=2,<3
+python-dotenv>=1,<2
+redis>=7,<9
+sqlalchemy>=2,<3
+psycopg2-binary>=2.9,<3
+alembic>=1,<2

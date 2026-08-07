@@ -1,0 +1,36 @@
+# Python environment
+.venv/
+venv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Environment and secrets
+.env
+*.env
+!.env.example
+
+# Testing and linting
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Project-generated data
+data/
+models/
+reports/
+mlruns/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Operating system
+.DS_Store
+**/.DS_Store
+
+# Python package/build artifacts
+*.egg-info/
+build/
+dist/

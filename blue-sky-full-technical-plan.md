@@ -191,20 +191,21 @@ worker is a separate process, not a FastAPI background task.
 ```text
 bluesky-trust-safety/
 ├── src/
-│   ├── common/              # settings, logging, clocks, shared errors
-│   ├── contracts/           # Pydantic event, prediction, and API contracts
-│   ├── ingestion/           # Jetstream connection, parsing, cursor handling
-│   ├── validation/          # quality checks and dead-letter routing
-│   ├── buffer/              # Redis stream writer, reader, recovery
-│   ├── features/            # versioned shared feature transformations
-│   ├── training/            # reusable preparation, training, evaluation logic
-│   ├── policy/              # thresholds and allow/review/high-risk decisions
-│   ├── serving/             # model loader, FastAPI app, stream worker
-│   ├── store/               # SQLAlchemy models and repositories
-│   ├── labeling/            # sampling and human-label operations
-│   ├── monitoring/          # Prometheus metrics and health checks
-│   ├── drift/               # reference data and Evidently reports
-│   └── retraining/          # Prefect challenger and promotion flows
+│   └── bluesky_trust_safety/
+│       ├── common/          # settings, logging, clocks, shared errors
+│       ├── contracts/       # Pydantic event, prediction, and API contracts
+│       ├── ingestion/       # Jetstream connection, parsing, cursor handling
+│       ├── validation/      # quality checks and dead-letter routing
+│       ├── buffer/          # Redis stream writer, reader, recovery
+│       ├── features/        # versioned shared feature transformations
+│       ├── training/        # reusable preparation, training, evaluation logic
+│       ├── policy/          # thresholds and allow/review/high-risk decisions
+│       ├── serving/         # model loader, FastAPI app, stream worker
+│       ├── store/           # SQLAlchemy models and repositories
+│       ├── labeling/        # sampling and human-label operations
+│       ├── monitoring/      # Prometheus metrics and health checks
+│       ├── drift/           # reference data and Evidently reports
+│       └── retraining/      # Prefect challenger and promotion flows
 ├── scripts/
 │   ├── run_consumer.py
 │   ├── run_worker.py
@@ -230,6 +231,8 @@ bluesky-trust-safety/
 ├── docs/
 │   ├── architecture/
 │   ├── adr/                 # short architecture decision records
+│   ├── checklists/          # reusable project checklists
+│   ├── phases/              # phase-by-phase learning guides
 │   ├── runbooks/
 │   ├── labeling-policy.md
 │   └── model-cards/
@@ -268,10 +271,10 @@ Create a clean, repeatable development environment before business logic.
 
 1. Resolve the currently deleted tracked scaffold files intentionally.
 2. Pin the repository to Python 3.11 using the existing pyenv installation.
-3. Create `.venv` with Python 3.11.
+3. Create `venv` with Python 3.11 and ignore both `venv/` and `.venv/` conventions.
 4. Separate human-maintained direct dependencies from the fully pinned lock file.
-5. Include required direct dependencies that were missing from the original plan,
-   including DVC and Alembic.
+5. Install only dependencies required by the current phase, including Alembic for the
+   planned database migration workflow. Add DVC when the training pipeline begins.
 6. Create `.env.example` with safe placeholder values.
 7. Use `docker compose`, not the legacy `docker-compose` command.
 8. Start Redis and PostgreSQL with named volumes and health checks.
