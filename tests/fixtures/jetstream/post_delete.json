@@ -1,0 +1,11 @@
+{
+  "did": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+  "time_us": 1786096920000000,
+  "kind": "commit",
+  "commit": {
+    "rev": "3kexampledelete",
+    "operation": "delete",
+    "collection": "app.bsky.feed.post",
+    "rkey": "3kexamplepost"
+  }
+}

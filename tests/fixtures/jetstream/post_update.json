@@ -1,0 +1,20 @@
+{
+  "did": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+  "time_us": 1786096860000000,
+  "kind": "commit",
+  "commit": {
+    "rev": "3kexampleupdate",
+    "operation": "update",
+    "collection": "app.bsky.feed.post",
+    "rkey": "3kexamplepost",
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "text": "This synthetic test post has been updated.",
+      "createdAt": "2026-08-07T10:00:00.000Z",
+      "langs": [
+        "en"
+      ]
+    },
+    "cid": "bafyreifakeupdatedcid"
+  }
+}
